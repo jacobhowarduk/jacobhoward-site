@@ -1,0 +1,245 @@
+/* jacobhoward.co.uk — minimal academic
+   One stylesheet, no build step, no dependencies. */
+
+:root {
+  --ink:        #16181d;
+  --ink-soft:   #4a4f5a;
+  --ink-faint:  #7c828e;
+  --rule:       #e2e0da;
+  --paper:      #fcfcfa;
+  --accent:     #1f3d5c;
+  --accent-bg:  #f1f3f6;
+  --measure:    34rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink:       #e6e4de;
+    --ink-soft:  #b0aca3;
+    --ink-faint: #85817a;
+    --rule:      #2e3138;
+    --paper:     #14161a;
+    --accent:    #9dbfdd;
+    --accent-bg: #1c2028;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  font-size: 17px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0 1.5rem;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua",
+               Charter, Georgia, "Times New Roman", serif;
+  line-height: 1.62;
+  font-kerning: normal;
+  font-variant-numeric: oldstyle-nums proportional-nums;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 4rem 0 6rem;
+}
+
+/* ---------- masthead ---------- */
+
+.masthead { margin-bottom: 3.25rem; }
+
+.masthead h1 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.15rem;
+  line-height: 1.2;
+}
+
+.masthead .role {
+  margin: 0 0 1.1rem;
+  color: var(--ink-faint);
+  font-size: 0.92rem;
+  font-style: italic;
+}
+
+nav {
+  font-size: 0.86rem;
+  font-family: ui-sans-serif, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-variant-numeric: normal;
+  letter-spacing: 0.02em;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--rule);
+}
+
+nav a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  margin-right: 1.35rem;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+}
+
+nav a:hover { color: var(--ink); border-bottom-color: var(--rule); }
+nav a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--ink); }
+
+/* ---------- type ---------- */
+
+h2 {
+  font-size: 0.78rem;
+  font-family: ui-sans-serif, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  font-variant-numeric: normal;
+  color: var(--ink-faint);
+  margin: 3.25rem 0 1.15rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+h3 {
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 1.35;
+  margin: 0 0 0.3rem;
+}
+
+p { margin: 0 0 1.1rem; }
+p:last-child { margin-bottom: 0; }
+
+a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--rule); }
+a:hover { border-bottom-color: var(--accent); }
+
+.lede { font-size: 1.06rem; }
+
+small, .small { font-size: 0.86rem; color: var(--ink-soft); }
+
+em.term { font-style: italic; }
+
+abbr { text-decoration: none; border-bottom: 1px dotted var(--ink-faint); cursor: help; }
+
+/* ---------- entries (papers, roles) ---------- */
+
+.entry { margin-bottom: 2.1rem; }
+.entry:last-child { margin-bottom: 0; }
+
+.entry .meta {
+  font-family: ui-sans-serif, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 0.78rem;
+  font-variant-numeric: normal;
+  letter-spacing: 0.02em;
+  color: var(--ink-faint);
+  margin: 0 0 0.55rem;
+}
+
+.entry p { margin-bottom: 0.55rem; }
+
+.tag {
+  display: inline-block;
+  font-family: ui-sans-serif, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  font-variant-numeric: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--accent);
+  background: var(--accent-bg);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  padding: 0.14rem 0.42rem;
+  vertical-align: 0.1em;
+}
+
+.links {
+  font-family: ui-sans-serif, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 0.8rem;
+  font-variant-numeric: normal;
+  color: var(--ink-faint);
+  margin: 0.5rem 0 0;
+}
+
+.links a { margin-right: 0.9rem; }
+
+/* ---------- findings list ---------- */
+
+ol.findings, ul.plain {
+  padding-left: 1.15rem;
+  margin: 0 0 1.1rem;
+}
+
+ol.findings li, ul.plain li { margin-bottom: 0.7rem; padding-left: 0.15rem; }
+ol.findings li::marker { color: var(--ink-faint); font-size: 0.9em; }
+
+/* ---------- interests ---------- */
+
+.interests {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.45rem;
+}
+
+.interests li {
+  font-family: ui-sans-serif, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 0.82rem;
+  font-variant-numeric: normal;
+  color: var(--ink-soft);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  padding: 0.2rem 0.55rem;
+}
+
+/* ---------- blockquote / abstract ---------- */
+
+.abstract {
+  border-left: 2px solid var(--rule);
+  padding-left: 1.1rem;
+  margin: 0 0 1.1rem;
+  color: var(--ink-soft);
+  font-size: 0.96rem;
+}
+
+/* ---------- footer ---------- */
+
+footer {
+  margin-top: 4.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  font-family: ui-sans-serif, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 0.78rem;
+  font-variant-numeric: normal;
+  color: var(--ink-faint);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.2rem;
+  justify-content: space-between;
+}
+
+footer a { color: var(--ink-faint); border-bottom-color: transparent; }
+footer a:hover { color: var(--ink); border-bottom-color: var(--rule); }
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 34rem) {
+  html { font-size: 16px; }
+  .wrap { padding: 2.5rem 0 4rem; }
+  nav a { margin-right: 1rem; }
+  footer { flex-direction: column; }
+}
+
+@media print {
+  body { background: #fff; color: #000; }
+  nav, footer { display: none; }
+  a { color: #000; border: 0; }
+  .wrap { max-width: none; padding: 0; }
+}

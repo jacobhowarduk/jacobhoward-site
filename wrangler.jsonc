@@ -1,0 +1,17 @@
+{
+  // Assets-only Worker: no server code, just static files served from the
+  // repository root. Cloudflare's build step runs `npx wrangler deploy`,
+  // which reads this file.
+  "name": "jacobhoward-site",
+  "compatibility_date": "2026-07-30",
+
+  "assets": {
+    // The site lives at the repo root. Files listed in .assetsignore
+    // (this config, the README, the licence) are not uploaded.
+    "directory": "./",
+
+    // Serve 404.html for anything that doesn't match a file, with a
+    // real 404 status rather than a redirect to the homepage.
+    "not_found_handling": "404-page"
+  }
+}
